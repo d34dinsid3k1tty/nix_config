@@ -224,6 +224,7 @@
         "browser.startup.page" = 3;
         "browser.shell.checkDefaultBrowser" = false;
         "keyword.enabled" = true;
+        "privacy.sanitize.sanitizeOnShutdown" = false;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
         # Pop-ups and related
