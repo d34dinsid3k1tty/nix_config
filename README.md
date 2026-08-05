@@ -12,8 +12,10 @@ $ nix develop ~/nix_config --impure -c zsh
 $ export XDG_DATA_DIRS="$NIX_BUILD_TOP/share:$XDG_DATA_DIRS"
 
 # execute after updates in nix files
-$ nix run github:nix-community/home-manager -- switch --flake .#michalina --impure
+$ NIXPKGS_ALLOW_UNFREE=1 nix run github:nix-community/home-manager -- switch --flake .#michalina --impure
 ```
+
+Actually you must enable LibreWolf extensions manually
 
 ## 🔧 TODO
 
