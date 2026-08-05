@@ -89,6 +89,29 @@
     fi
   '';
 
+  # Programs with configuration
+  # Thunderbird (E-mail)
+  programs.thunderbird = {
+    enable = true;
+    profiles.default = {
+      isDefault = true;
+
+      settings = {
+        # Enable userChrome.css and userContent.css
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
+        # Privacy
+        "privacy.donottrackheader.enabled" = true;
+        "network.cookie.cookieBehavior" = 1;
+
+        # UI
+        "mailnews.start_page_enabled" = false;
+        "mail.biff.play_sound" = false;
+        "mail.openMessageBehavior.version" = 1;
+      };
+    };
+  };
+
   programs.home-manager.enable = true;
 }
 
