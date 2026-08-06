@@ -127,6 +127,16 @@
   # LibreWolf (Web)
   programs.librewolf = {
     enable = true;
+    policies = {
+      Cookies = {
+        # Exceptions for websites cookies
+        Allow = [
+          "https://github.com"
+        ];
+        # Temp for session, will be cleared after browser exit
+        #   AllowSession = [ "https://example.com" ];
+      };
+    };
     profiles.default = {
       extensions.packages = [
         # Cookies
@@ -143,7 +153,7 @@
           url = "https://addons.mozilla.org/firefox/downloads/file/3959037/doki_theme_for_firefox-84.2.0.xpi";
           sha256 = "f75be8ffe41c305e46791585510a58d7ac4e382047efab60f0ea90c741b289cf";
           meta = with lib; {
-            description = "Doki THeme for Firefox";
+            description = "Doki Theme for Firefox";
             license = licenses.mit;
             homepage = "https://addons.mozilla.org/firefox/addon/doki-theme-for-firefox/";
           };
@@ -225,6 +235,7 @@
         "browser.shell.checkDefaultBrowser" = false;
         "keyword.enabled" = true;
         "privacy.sanitize.sanitizeOnShutdown" = false;
+        "security.enterprise_roots.enabled" = true;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
         # Pop-ups and related
@@ -254,18 +265,31 @@
         "widget.use-aspect-ratio" = true;
 
         # Session/Cookies
-        "network.cookie.lifetimePolicy" = 0;
-        "privacy.clearOnShutdown.cookies" = false;
+        "privacy.clearOnShutdown.cookies" = true;
         "privacy.clearOnShutdown.history" = false;
+        "privacy.cpd.cookies" = false;
+        "privacy.history.custom" = true;
 
         # Sidebar
         "sidebar.revamp" = true;
+        "sidebar.verticalTabs" = true;
+        "sidebar.visibility" = "always-show";
       };
 
-      # Extra configs
-      # 1. Exceptions for websites cookies (1 - Allow cookies)
-      extraConfig = ''
-        user_pref("capability.policy.default.sites.https://github.com", 1);
+      # Custom CSS
+      userChrome = ''
+        #TabsToolbar {
+          visibility: collapse !important;
+        }
+
+        #titlebar {
+          appearance: none !important;
+        }
+
+        #TabsToolbar .tabs-newtab-button,
+        #TabsToolbar #new-tab-button {
+          display: none !important;
+        }
       '';
     };
   };
