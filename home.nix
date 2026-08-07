@@ -232,6 +232,18 @@
         firefox-addons.archivebox-exporter
         firefox-addons.export-cookies-txt
         firefox-addons.export-tabs-urls-and-titles
+        (buildFirefoxAddon {
+          pname = "history-export";
+          version = "0.7";
+          addonId = "{ce0db577-2723-471c-9ed7-440d83e793e0}";
+          url = "https://addons.mozilla.org/firefox/downloads/file/4918912/sky_history_export-0.7.xpi";
+          sha256 = "9024e4c26156f284c1600fdb7f8060a5884ace031e7e952ed346ea2934c17de7";
+          meta = with lib; {
+            description = "Quick and dirty history export/import";
+            license = licenses.mit;
+            homepage = "https://addons.mozilla.org/en-US/firefox/addon/sky-history-export/";
+          };
+        })
 
         # Flash
         firefox-addons.ruffle_rs
