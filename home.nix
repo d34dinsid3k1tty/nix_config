@@ -244,6 +244,18 @@
             homepage = "https://addons.mozilla.org/en-US/firefox/addon/sky-history-export/";
           };
         })
+        (buildFirefoxAddon {
+          pname = "localstorage-export";
+          version = "1.3.33";
+          addonId = "{908b01ae-e9f3-4122-b4ce-5c731d04c738}";
+          url = "https://addons.mozilla.org/firefox/downloads/file/4738551/localstorage_editor-1.3.33.xpi";
+          sha256 = "498d1b81fbfb620f479062e55525e26bf0d1602c4780e5c4b43e8c2b29170196";
+          meta = with lib; {
+            description = "Add, edit, copy, remove, export and import local- and session- storage data";
+            license = licenses.unlicense;
+            homepage = "https://addons.mozilla.org/en-US/firefox/addon/localstorage-editor/";
+          };
+        })
 
         # Flash
         firefox-addons.ruffle_rs
