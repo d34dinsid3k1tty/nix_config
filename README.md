@@ -15,7 +15,10 @@ $ export XDG_DATA_DIRS="$NIX_BUILD_TOP/share:$XDG_DATA_DIRS"
 $ NIXPKGS_ALLOW_UNFREE=1 nix run github:nix-community/home-manager -- switch --flake .#michalina --impure
 ```
 
-Actually you must enable LibreWolf extensions manually
+Actually you must enable LibreWolf extensions manually.
+
+Also, Window List GNOME Extension must be activated manually too,
+rest of them are activates automatically
 
 ## 🔧 TODO
 

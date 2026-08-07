@@ -27,6 +27,7 @@
       pkgs.gnome-extension-manager
       pkgs.gnomeExtensions.blur-my-shell
       pkgs.gnomeExtensions.appindicator
+      pkgs.gnomeExtensions.arc-menu
     ##
 
     ## Emulators
@@ -72,8 +73,13 @@
       disable-user-extensions = false;
       enabled-extensions = [
         "appindicatorsupport@rgcjonas.gmail.com"
+        "arcmenu@arcmenu.com"
         "blur-my-shell@aunetx"
+        # "window-list@gnome-shell-extensions.gcampax.github.com"
       ];
+    };
+    "org/gnome/desktop/interface" = {
+      enable-hot-corners = false;
     };
   };
 
