@@ -30,23 +30,7 @@
       myApps = import ./shell.nix { inherit pkgs; };
     in {
       devShells.${system}.default = pkgs.mkShell {
-        buildInputs = myApps ++ (with pkgs; [
-          # GNOME
-          gnomeExtensions.blur-my-shell
-          gnomeExtensions.appindicator
-        ]);
-
-        shellHook = ''
-          export GDK_BACKEND="wayland"
-          export QT_QPA_PLATFORM="wayland"
-          export NIXOS_OZONE_WL=1
-          export SDL_VIDEODRIVER="wayland"
-          export CLUTTER_BACKEND="wayland"
-
-          export ANDROID_HOME="$HOME/Android/Sdk"
-          export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
-          export FLUTTER_ANDROID_STUDIO_PATH="${pkgs.android-studio}"
-        '';
+        buildInputs = myApps;
       };
 
       homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {

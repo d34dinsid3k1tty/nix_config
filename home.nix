@@ -21,12 +21,20 @@
   xdg.enable = true;
 
   home.packages = [
-    # Emulators
+    ## OS-related
+      # GNOME
+      pkgs.gnome-tweaks
+      pkgs.gnome-extension-manager
+      pkgs.gnomeExtensions.blur-my-shell
+      pkgs.gnomeExtensions.appindicator
+    ##
+
+    ## Emulators
     pkgs.dosbox-x
     pkgs.mesen
     pkgs.openmsx 
 
-    # Messengers
+    ## Messengers
     pkgs.discord-canary
     pkgs.ferdium
     pkgs.pidgin
@@ -34,7 +42,7 @@
     pkgs.telegram-desktop
     pkgs.element-desktop
 
-    # Programming
+    ## Programming
     pkgs.android-studio-full
     pkgs.dbeaver-bin
     pkgs.godot
@@ -45,6 +53,28 @@
   };
   home.sessionVariables = {
     BROWSER = "librewolf";
+
+    # Wayland
+    GDK_BACKEND = "wayland";
+    QT_QPA_PLATFORM = "wayland";
+    NIXOS_OZONE_WL = "1";
+    SDL_VIDEODRIVER = "wayland";
+    CLUTTER_BACKEND = "wayland";
+
+    # Android / Flutter / Mobile
+    ANDROID_HOME = "$HOME/Android/Sdk";
+    ANDROID_SDK_ROOT = "$HOME/Android/Sdk";
+    FLUTTER_ANDROID_STUDIO_PATH = "${pkgs.android-studio}";
+  };
+
+  dconf.settings = {
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = [
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "blur-my-shell@aunetx"
+      ];
+    };
   };
 
   home.activation.linkDesktopAndIcons = lib.hm.dag.entryAfter ["writeBoundary"] ''
