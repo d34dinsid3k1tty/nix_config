@@ -23,11 +23,20 @@
   home.packages = [
     ## OS-related
       # GNOME
+      # TIL: fucked manually provided extensions and fix it
+      # with automatization
       pkgs.gnome-tweaks
       pkgs.gnome-extension-manager
       pkgs.gnomeExtensions.blur-my-shell
       pkgs.gnomeExtensions.appindicator
       pkgs.gnomeExtensions.arc-menu
+      # pkgs.gnomeExtensions.add-to-menu
+      # pkgs.gnomeExtensions.current-workspace-name
+      # pkgs.gnomeExtensions.emoji-copy
+      # pkgs.gnomeExtensions.in-picture
+      # pkgs.gnomeExtensions.user-name-indicator
+      # pkgs.gnomeExtensions.smart-home
+      # pkgs.gnomeExtensions.vertical-workspaces
     ##
 
     ## Emulators
@@ -72,10 +81,17 @@
     "org/gnome/shell" = {
       disable-user-extensions = false;
       enabled-extensions = [
+        "add-to-desktop@bujon.su"
         "appindicatorsupport@rgcjonas.gmail.com"
         "arcmenu@arcmenu.com"
         "blur-my-shell@aunetx"
+        # "currentworkspacename@jaybeeunix.dev"
+        # "emoji-copy@felipeftn"
         # "window-list@gnome-shell-extensions.gcampax.github.com"
+        # "in-picture@mcland.org"
+        # "user-name-indicator@gnome-shell-extensions.gcampax.github.com"
+        # "smart-home@vchlum.cz"
+        # "vertical-workspaces@G-dH.github.com"
       ];
     };
     "org/gnome/desktop/interface" = {
