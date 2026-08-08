@@ -8,6 +8,15 @@ Nix configuration for my ThinkPad X390 (odin)
 
 ## ⌨️  Useful commands
 
+Before running config, don't forget to fix SSL:
+
+```sh
+$ sudo mkdir -p /etc/ssl/certs
+$ sudo ln -sf /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem /etc/ssl/certs/ca-bundle.crt
+```
+
+To deal with nix environment:
+
 ```sh
 # runs in nix shell
 $ nix develop ~/nix_config --impure -c zsh
