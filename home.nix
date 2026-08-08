@@ -191,6 +191,9 @@
     };
     profiles.default = {
       extensions.packages = [
+        # GNOME
+        firefox-addons.gnome-shell-integration
+
         # Cookies
         firefox-addons.cookie-editor
         firefox-addons.cookie-quick-manager
